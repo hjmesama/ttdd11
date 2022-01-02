@@ -1,0 +1,97 @@
+﻿@model  IEnumerable<ShopConnection.LoaiSanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+<h2>Index LSP</h2>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+
+    th {
+        background-color: #04AA6D;
+        color: white;
+    }
+</style>
+<h2>QUẢN LÝ LSP</h2>
+<table>
+    <tr>
+        <th>Mã Loại SP</th>
+        <th>Tên Loại SP</th>
+        <th>Tình Trạng</th>
+        <th colspan="2">
+            <a href="@Url.Action("Create","LoaiSanPhamAdmin")"><img src="~/Asset/images/addnsxx.png" /></a>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaLoaiSanPham</td>
+            <td>@item.TenLoaiSanPham</td>
+            <td>@item.TinhTrang</td>
+            <td><a href="@Url.Action("Edit","LoaiSanPhamAdmin", new { id = @item.MaLoaiSanPham})"><img src="~/Asset/images/edit.png" /></a> </td>
+            <td><a href="@Url.Action("XoaTamThoi","LoaiSanPhamAdmin", new {id =item.MaLoaiSanPham })"><img src="~/Asset/images/delete1.png" /></a> </td>
+        </tr>
+    }
+
+
+</table>
+
+@*<style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        th {
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+    <h2>QUẢN LÝ NHÀ SẢN XUẤT</h2>
+    <table>
+        <tr>
+            <th>Mã Nhà Sản Xuất</th>
+            <th>Tenn Nhà Sản Xuất</th>
+            <th>Tình Trạng</th>
+            <th colspan="2">
+                <a href="@Url.Action("Create","LoaiSanPhamAdmin")"><img src="~/Asset/images/addnsxx.png" /></a>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaLoaiSanPham</td>
+                <td>@item.TenLoaiSanPham</td>
+                <td>@item.TinhTrang</td>
+                <td><a href="@Url.Action("Edit","LoaiSanPhamAdmin", new { id = @item.MaLoaiSanPham})"><img src="~/Asset/images/edit.png" /></a> </td>
+                <td><a href="@Url.Action("XoaTamThoi","LoaiSanPhamAdmin", new {id =item.MaLoaiSanPham })"><img src="~/Asset/images/delete1.png" /></a> </td>
+            </tr>
+        }
+
+
+    </table>*@
+
+
